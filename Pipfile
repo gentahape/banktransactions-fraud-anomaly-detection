@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+joblib = "*"
+pandas = "*"
+fastapi = "*"
+pydantic = "*"
+streamlit = "*"
+requests = "*"
+uvicorn = "*"
+scikit-learn = "==1.6.1"
+xgboost = "==3.2.0"
+python-dotenv = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
