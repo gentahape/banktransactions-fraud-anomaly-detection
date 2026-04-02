@@ -4,14 +4,17 @@ import joblib
 import pandas as pd
 import numpy as np
 from transformer import FeatureEngineer
+from pathlib import Path
 
 import __main__
 __main__.FeatureEngineer = FeatureEngineer
 
 app = FastAPI(title="Fraud Detection API")
 
+BASE_DIR = Path(__file__).resolve().parent
+
 try:
-    model = joblib.load('models/final_fraud_pipeline_tuned.joblib')
+    model = joblib.load(f'{BASE_DIR.parent}/backend/models/final_fraud_pipeline_tuned.joblib')
 except Exception as e:
     print(f"Loading model failed: {e}")
 
