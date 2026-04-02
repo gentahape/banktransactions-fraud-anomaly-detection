@@ -9,14 +9,15 @@ from pathlib import Path
 import __main__
 __main__.FeatureEngineer = FeatureEngineer
 
-app = FastAPI(title="Fraud Detection API")
+app = FastAPI(title="Bank Transactions Fraud & Anomaly Detection API")
 
 BASE_DIR = Path(__file__).resolve().parent
 
+MODEL_PATH = BASE_DIR / 'models' / 'final_fraud_pipeline_tuned.joblib'
 try:
     model = joblib.load(f'{BASE_DIR.parent}/backend/models/final_fraud_pipeline_tuned.joblib')
 except Exception as e:
-    print(f"Loading model failed: {e}")
+    raise RuntimeError(f"Fail to load model. Make sure the model file exist in: {MODEL_PATH}") from e
 
 class TransactionData(BaseModel):
     TransactionDate: str
@@ -33,7 +34,7 @@ class TransactionData(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "Fraud Detection API is Running"}
+    return {"message": "Bank Transactions Fraud & Anomaly Detection API is Running"}
 
 @app.post("/predict")
 def predict(data: TransactionData):
