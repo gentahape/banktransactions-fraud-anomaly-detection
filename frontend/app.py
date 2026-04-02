@@ -3,10 +3,13 @@ import requests
 import datetime
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # ==========================================
 # PAGE CONFIGURATION
@@ -391,7 +394,7 @@ with col_xai1:
     """)
 
 with col_xai2:
-    st.image("assets/shap_summary.png", caption="Global Feature Importance using SHAP", width="stretch")
+    st.image(f"{BASE_DIR.parent}/frontend/assets/shap_summary.png", caption="Global Feature Importance using SHAP", width="stretch")
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.divider()
@@ -405,7 +408,7 @@ st.markdown("Serves as proof of foundational ML skills and proactive engineering
 col_cert_img, col_cert_text = st.columns([1, 1.5])
 
 with col_cert_img:
-    st.image("assets/certificate.png", width="stretch")
+    st.image(f"{BASE_DIR.parent}/frontend/assets/certificate.png", width="stretch")
 
 with col_cert_text:
     st.markdown("This Machine Learning project originated as a final submission for the **'Belajar Machine Learning untuk Pemula'** (Learn Machine Learning for Beginners) certification at Dicoding. It was thoroughly reviewed by industry experts, and I actively implemented their feedback to further deepen my understanding of core ML concepts.")
