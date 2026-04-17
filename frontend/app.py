@@ -115,13 +115,13 @@ with col2:
     st.markdown("""
     <a href="#interactive-detection-simulator" target="_self" style="text-decoration: none;">
         <div style="
-            background-color: #FF4B4B; 
+            background-color: #0068c9; 
             color: white; 
             padding: 0.45rem 1rem; 
             border-radius: 0.5rem; 
             text-align: center; 
             font-weight: 600;
-            border: 1px solid #FF4B4B;
+            border: 1px solid #0068c9;
             transition: 0.3s;
         ">
             Start Simulation
